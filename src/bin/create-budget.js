@@ -5,16 +5,17 @@ const client = new MongoClient(uri);
 
 const main = async () => {
   try {
+    return;
     const mongo = await client.connect();
     const database = mongo.db('budget');
   
     const collection = database.collection('budgets')
     const itemsCollection = database.collection('items')
 
-    await collection.remove({});
-    await itemsCollection.remove();
-    await database.collection('entries').remove();
-    await database.collection('types').remove();
+    // await collection.remove({});
+    // await itemsCollection.remove();
+    // await database.collection('entries').remove();
+    // await database.collection('types').remove();
     
     const { insertedId } = await collection.insertOne({
       description: '2021 Budget',
